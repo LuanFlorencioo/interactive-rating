@@ -1,0 +1,23 @@
+{
+  "name": "interactive-rating",
+  "description": "![Design preview for the Interactive rating component coding challenge](./design/desktop-preview.jpg)",
+  "version": "1.0.0",
+  "main": "index.html",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuanFlorencioo/interactive-rating.git"
+  },
+  "author": "Luan Florencio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LuanFlorencioo/interactive-rating/issues"
+  },
+  "homepage": "https://github.com/LuanFlorencioo/interactive-rating#readme",
+  "dependencies": {
+    "sass": "^1.52.3"
+  }
+}
