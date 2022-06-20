@@ -5,7 +5,8 @@
   "main": "index.html",
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "sass:s": "sass src/scss/:src/css/",
+    "sass:w": "sass --watch src/scss/:src/css/"
   },
   "repository": {
     "type": "git",
