@@ -2,48 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./src/images/favicon-32x32.png">
+  <link rel="stylesheet" href="src/css/styles.css">
   
   <title>Frontend Mentor | Interactive rating component</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <meta name="description"
+  content="This challenge is to build out this interactive rating component and get it looking as close to the design as possible.">
 </head>
 <body>
+  <div class="container">
 
-  <!-- Rating state start -->
+    <div class="component-rating">
 
-  How did we do?
-
-  Please let us know how we did with your support request. All feedback is appreciated 
-  to help us improve our offering!
-
-  1 2 3 4 5
-
-  Submit
-
-  <!-- Rating state end -->
-
-  <!-- Thank you state start -->
-
-  You selected <!-- Add rating here --> out of 5
-
-  Thank you!
-
-  We appreciate you taking the time to give a rating. If you ever need more support, 
-  don’t hesitate to get in touch!
-
-  <!-- Thank you state end -->
-
+      <div class="ellipse">
+        <img src="./src/images/icon-star.svg" alt="Star icon">
+      </div>
   
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+      <h1>How did we go?</h1>
+  
+      <p>Please let us know how we did with your support request. All feedback is appreaciated to help us improve our offring!</p>
+  
+      <div class="ratings">
+        <div class="ellipse rating" data-rate="1">1</div>
+        <div class="ellipse rating" data-rate="2">2</div>
+        <div class="ellipse rating" data-rate="3">3</div>
+        <div class="ellipse rating" data-rate="4">4</div>
+        <div class="ellipse rating" data-rate="5">5</div>
+      </div>
+  
+      <button disabled>submit</button>
+    </div>
+
+    <div class="component-thanks">
+      <img src="./src/images/illustration-thank-you.svg" alt="illustration">
+
+      <div class="box-ellipse">
+        <p><span></span></p>
+      </div>
+  
+      <h2>Thank you!</h2>
+  
+      <p>we appreciate you taking the time to give a rating. if you ever need more support, don't hesitate to get in touch</p>
+    </div>
   </div>
+  <script src="./src/js/script.js"></script>
 </body>
 </html>
