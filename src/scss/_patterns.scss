@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap');
+
+$main-background: #121417;
+$container-background: #202731;
+$box-background: #252C36;
+$gray: #959EAC;
+$white: #FFF;
+$orange: #FB7413;
+$text-color-gray: $gray;
+$text-color-white: $white;
+$text-color-orange: $orange;
+
+:root {
+    font-size: 10px;
+
+    h1 {
+        font-size: 2rem;
+        color: $text-color-white;
+    }
+
+    p {
+        font-size: 1.5rem;
+        color: $text-color-gray;
+
+        &::selection {
+            background: $orange;
+            color: $text-color-white;
+        }
+
+        span {
+            color: $text-color-orange;
+        }
+    }
+
+    h2 {
+        font-size: 2.4rem;
+        color: $text-color-white;
+    }
+
+    h1, h2 {
+        &::selection {
+            background: $orange;
+        }
+    }
+
+    button, .rating {
+        cursor: pointer;
+    }
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Overpass', sans-serif;
+}
