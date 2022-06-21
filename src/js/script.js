@@ -6,51 +6,71 @@ const elements = {
     body: document.querySelector('body')
 }
 
-const events = {
-    ratingClickEvent(e) {
-        elements.allRating.forEach(rate => rate.classList.remove('rated'));
-        e.target.classList.toggle('rated');
-
-        (elements.button.disabled)
-            ? elements.button.removeAttribute('disabled')
+const cleanOtherChoices = () => {
+    elements.allRating.forEach(othersRank => {
+        const rankClass = othersRank.classList;
+        (rankClass.contains('rankChoice'))
+            ? rankClass.remove('rankChoice')
             : null;
-    },
+    });
+};
 
-    buttonSubmitEvent(e) {
-        e.preventDefault();
-        const setBlocker = () => {
-            const createBlocker = document.createElement('div');
-            createBlocker.classList.toggle('blocker');
+const toRank = (rankClicked) => {
+    const rankChoiceClass = rankClicked.target.classList;
+    const isButtonDisabled = elements.button.disabled;
+    const hasClassRankChoice = rankChoiceClass.contains('rankChoice');
 
-            (elements.body.querySelector('.blocker'))
-                ? elements.body.removeChild(document.querySelector('.blocker'))
-                : elements.body.appendChild(createBlocker);
-        }
-        setBlocker();
+    (isButtonDisabled)
+        ? elements.button.removeAttribute('disabled')
+        : null;
 
-        const rated = document.querySelector('.rated').getAttribute('data-rate');
-        const messageThanks = `You selected ${rated} of 5`
-        elements.span.innerText = messageThanks;
+    return (hasClassRankChoice)
+        ? null
+        : cleanOtherChoices() & rankChoiceClass.add('rankChoice');
 
-        const setContainerClass = (className) => {
-            elements.container.classList.toggle(className)
-        }
+};
+
+const screenBlocker = () => {
+    const createBlocker = document.createElement('div');
+    createBlocker.classList.toggle('blocker');
+    const getBlocker = document.querySelector('.blocker');
+    const hasElementBlockerInBody = elements.body.querySelector('.blocker');
+
+    return (hasElementBlockerInBody)
+        ? elements.body.removeChild(getBlocker)
+        : elements.body.appendChild(createBlocker);
+};
+
+const containerAnimationAfterClick = () => {
+    const toggleClassContainer = (className) => {
+        elements.container.classList.toggle(className);
+    };
+
+    const doAnimation = () => {
         setTimeout(() => {
-            setContainerClass('exitContainer');
+            toggleClassContainer('exitContainer');
         }, 1000);
         setTimeout(() => {
-            setContainerClass('rated');
-            setContainerClass('exitContainer');
-            setContainerClass('entraceContainer');
+            toggleClassContainer('toggleContainerElements');
+            toggleClassContainer('exitContainer');
+            toggleClassContainer('entraceContainer');
         }, 2000);
         setTimeout(() => {
-            setContainerClass('entraceContainer');
-            setBlocker();
+            toggleClassContainer('entraceContainer');
+            screenBlocker();
         }, 2800);
-    }
+    };
+
+    return doAnimation()
+};
+
+const buttonSubmitEvent = () => {
+    const getRankValue = document.querySelector('.rankChoice').getAttribute('data-rate');
+    const overviewMessage = `You selected ${getRankValue} of 5`;
+    elements.span.innerText = overviewMessage;
+    screenBlocker();
+    containerAnimationAfterClick();
 }
 
-elements.allRating.forEach(rate => {
-    rate.addEventListener('click', events.ratingClickEvent)
-})
-elements.button.addEventListener('click', events.buttonSubmitEvent)
+elements.allRating.forEach(rate => rate.addEventListener('click', toRank));
+elements.button.addEventListener('click', buttonSubmitEvent);
