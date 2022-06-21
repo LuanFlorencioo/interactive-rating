@@ -10,44 +10,6 @@ $text-color-gray: $gray;
 $text-color-white: $white;
 $text-color-orange: $orange;
 
-:root {
-    font-size: 10px;
-
-    h1 {
-        font-size: 2rem;
-        color: $text-color-white;
-    }
-
-    p {
-        font-size: 1.5rem;
-        color: $text-color-gray;
-
-        &::selection {
-            background: $orange;
-            color: $text-color-white;
-        }
-
-        span {
-            color: $text-color-orange;
-        }
-    }
-
-    h2 {
-        font-size: 2.4rem;
-        color: $text-color-white;
-    }
-
-    h1, h2 {
-        &::selection {
-            background: $orange;
-        }
-    }
-
-    button, .rating {
-        cursor: pointer;
-    }
-}
-
 body {
     width: 100%;
     height: 100vh;
@@ -61,4 +23,65 @@ body {
     list-style: none;
     text-decoration: none;
     font-family: 'Overpass', sans-serif;
+}
+
+h1 {
+    font-size: 2rem;
+    color: $text-color-white;
+}
+
+p {
+    font-size: 1.5rem;
+    color: $text-color-gray;
+
+    span {
+        color: $text-color-orange;
+    }
+}
+
+p, span {
+    &::selection {
+        background: $orange;
+        color: $text-color-white;
+    }
+}
+
+h2 {
+    font-size: 2.4rem;
+    color: $text-color-white;
+}
+
+h1, h2 {
+    &::selection {
+        background: $orange;
+    }
+}
+
+button {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: $orange;
+    color: $text-color-white;
+}
+
+button, .rating {
+    cursor: pointer;
+}
+
+.ellipse {
+    font-size: 1.6rem;
+    background: $box-background;
+    color: $text-color-gray;
+}
+
+@media (max-width: 768px) {
+    :root {
+        font-size: 10px;
+    }
+}
+
+@media (min-width: 769px) {
+    :root {
+        font-size: 12px;
+    }
 }

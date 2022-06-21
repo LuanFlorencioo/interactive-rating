@@ -10,12 +10,8 @@ body {
     align-items: center;
 
     .container {
-        width: 90%;
-        max-width: 500px;
-        height: 360px;
         background: $container-background;
         border-radius: 10px;
-        padding: 18px;
 
         &.exitContainer {
             animation: slide-out-elliptic-top-bck 0.7s ease-in both;
@@ -24,7 +20,7 @@ body {
             animation: slide-in-elliptic-top-fwd 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
         }
 
-        &.rated {
+        &.toggleContainerElements {
             .component-rating {
                 display: none;
             }
@@ -41,15 +37,10 @@ body {
             justify-content: space-between;
             
             .ellipse {
-                width: 40px;
-                height: 40px;
                 border-radius: 50%;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                background: $box-background;
-                color: $text-color-gray;
-                font-size: 1.6rem;
 
                 img {
                     animation: starRotate 10s linear infinite;
@@ -62,15 +53,19 @@ body {
                 justify-content: space-evenly;
 
                 .rating {
+                    user-select: none;
                     transition: .3s;
+                    &:checked {
+                        background: #d33;
+                    }
                 }
 
-                .rating:nth-child(1n):not(.rated):hover {
+                .rating:nth-child(1n):not(.rankChoice):hover {
                     background: $gray;
                     color: $text-color-white;
                 }
 
-                .rated {
+                .rankChoice {
                     background: $orange;
                     color: $text-color-white;
                 }
@@ -79,11 +74,8 @@ body {
             button {
                 width: 100%;
                 padding: 10px 0;
-                background: $orange;
                 border-radius: 50px;
                 border: none;
-                font-size: 1.8rem;
-                color: $text-color-white;
                 text-transform: uppercase;
                 transition: .6s;
                 user-select: none;
@@ -128,7 +120,50 @@ body {
         position: absolute;
         top: 0;
         left: 0;
-        z-index: 3;
+        z-index: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        .container {
+            width: 90%;
+            max-width: 360px;
+            height: 360px;
+            padding: 18px;
+
+            .component-rating {
+                justify-content: space-between;
+
+                .ellipse {
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 769px) { 
+    body {
+        .container {
+            max-width: 400px;
+            height: 400px;
+            padding: 20px;
+
+            .component-rating {
+                justify-content: space-between;
+
+                .ellipse {
+                    width: 55px;
+                    height: 55px;
+                    
+                    img {
+                        width: 50%;
+                    }
+                }
+            }
+        }     
     }
 }
 
