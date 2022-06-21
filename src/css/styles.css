@@ -1,33 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap");
-:root {
-  font-size: 10px;
-}
-:root h1 {
-  font-size: 2rem;
-  color: #FFF;
-}
-:root p {
-  font-size: 1.5rem;
-  color: #959EAC;
-}
-:root p::selection {
-  background: #FB7413;
-  color: #FFF;
-}
-:root p span {
-  color: #FB7413;
-}
-:root h2 {
-  font-size: 2.4rem;
-  color: #FFF;
-}
-:root h1::selection, :root h2::selection {
-  background: #FB7413;
-}
-:root button, :root .rating {
-  cursor: pointer;
-}
-
 body {
   width: 100%;
   height: 100vh;
@@ -43,6 +14,60 @@ body {
   font-family: "Overpass", sans-serif;
 }
 
+h1 {
+  font-size: 2rem;
+  color: #FFF;
+}
+
+p {
+  font-size: 1.5rem;
+  color: #959EAC;
+}
+p span {
+  color: #FB7413;
+}
+
+p::selection, span::selection {
+  background: #FB7413;
+  color: #FFF;
+}
+
+h2 {
+  font-size: 2.4rem;
+  color: #FFF;
+}
+
+h1::selection, h2::selection {
+  background: #FB7413;
+}
+
+button {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: #FB7413;
+  color: #FFF;
+}
+
+button, .rating {
+  cursor: pointer;
+}
+
+.ellipse {
+  font-size: 1.6rem;
+  background: #252C36;
+  color: #959EAC;
+}
+
+@media (max-width: 768px) {
+  :root {
+    font-size: 10px;
+  }
+}
+@media (min-width: 769px) {
+  :root {
+    font-size: 12px;
+  }
+}
 body {
   position: relative;
   top: 0;
@@ -53,12 +78,8 @@ body {
   align-items: center;
 }
 body .container {
-  width: 90%;
-  max-width: 500px;
-  height: 360px;
   background: #202731;
   border-radius: 10px;
-  padding: 18px;
 }
 body .container.exitContainer {
   animation: slide-out-elliptic-top-bck 0.7s ease-in both;
@@ -66,10 +87,10 @@ body .container.exitContainer {
 body .container.entraceContainer {
   animation: slide-in-elliptic-top-fwd 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
-body .container.rated .component-rating {
+body .container.toggleContainerElements .component-rating {
   display: none;
 }
-body .container.rated .component-thanks {
+body .container.toggleContainerElements .component-thanks {
   display: flex;
 }
 body .container .component-rating {
@@ -79,15 +100,10 @@ body .container .component-rating {
   justify-content: space-between;
 }
 body .container .component-rating .ellipse {
-  width: 40px;
-  height: 40px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #252C36;
-  color: #959EAC;
-  font-size: 1.6rem;
 }
 body .container .component-rating .ellipse img {
   animation: starRotate 10s linear infinite;
@@ -98,24 +114,25 @@ body .container .component-rating .ratings {
   justify-content: space-evenly;
 }
 body .container .component-rating .ratings .rating {
+  user-select: none;
   transition: 0.3s;
 }
-body .container .component-rating .ratings .rating:nth-child(1n):not(.rated):hover {
+body .container .component-rating .ratings .rating:checked {
+  background: #d33;
+}
+body .container .component-rating .ratings .rating:nth-child(1n):not(.rankChoice):hover {
   background: #959EAC;
   color: #FFF;
 }
-body .container .component-rating .ratings .rated {
+body .container .component-rating .ratings .rankChoice {
   background: #FB7413;
   color: #FFF;
 }
 body .container .component-rating button {
   width: 100%;
   padding: 10px 0;
-  background: #FB7413;
   border-radius: 50px;
   border: none;
-  font-size: 1.8rem;
-  color: #FFF;
   text-transform: uppercase;
   transition: 0.6s;
   user-select: none;
@@ -152,9 +169,41 @@ body .blocker {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 3;
+  z-index: 1;
 }
 
+@media (max-width: 768px) {
+  body .container {
+    width: 90%;
+    max-width: 360px;
+    height: 360px;
+    padding: 18px;
+  }
+  body .container .component-rating {
+    justify-content: space-between;
+  }
+  body .container .component-rating .ellipse {
+    width: 40px;
+    height: 40px;
+  }
+}
+@media (min-width: 769px) {
+  body .container {
+    max-width: 400px;
+    height: 400px;
+    padding: 20px;
+  }
+  body .container .component-rating {
+    justify-content: space-between;
+  }
+  body .container .component-rating .ellipse {
+    width: 55px;
+    height: 55px;
+  }
+  body .container .component-rating .ellipse img {
+    width: 50%;
+  }
+}
 @keyframes buttonExpanded {
   0% {
     transform: scale3d(1, 1, 1);
