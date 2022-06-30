@@ -117,9 +117,6 @@ body .container .component-rating .ratings .rating {
   user-select: none;
   transition: 0.3s;
 }
-body .container .component-rating .ratings .rating:checked {
-  background: #d33;
-}
 body .container .component-rating .ratings .rating:nth-child(1n):not(.rankChoice):hover {
   background: #959EAC;
   color: #FFF;
@@ -186,6 +183,9 @@ body .blocker {
     width: 40px;
     height: 40px;
   }
+  body .container .rating {
+    cursor: default;
+  }
 }
 @media (min-width: 769px) {
   body .container {
@@ -202,6 +202,9 @@ body .blocker {
   }
   body .container .component-rating .ellipse img {
     width: 50%;
+  }
+  body .container .rating {
+    cursor: pointer;
   }
 }
 @keyframes buttonExpanded {
