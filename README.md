@@ -64,4 +64,4 @@ _Luan Florêncio_
 
 ## Acknowledgments
 
-I would like to thank my cousin [Eduardo](https://github.com/Edufreitass) for providing the best "coding" friendship on the face of the world. He must be reading this and laughing right now.
+I would like to thank my cousin [Eduardo](https://github.com/Edufreitass) for providing the best "coding" friendship on the face of the world. He help me with the blue effect buttons, an erro in mobile version. He must be reading this and laughing right now.
