@@ -55,9 +55,6 @@ body {
                 .rating {
                     user-select: none;
                     transition: .3s;
-                    &:checked {
-                        background: #d33;
-                    }
                 }
 
                 .rating:nth-child(1n):not(.rankChoice):hover {
@@ -140,6 +137,10 @@ body {
                     height: 40px;
                 }
             }
+
+            .rating {
+                cursor: default;
+            }
         }
     }
 }
@@ -162,6 +163,10 @@ body {
                         width: 50%;
                     }
                 }
+            }
+
+            .rating {
+                cursor: pointer;
             }
         }     
     }
